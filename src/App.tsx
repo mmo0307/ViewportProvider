@@ -1,25 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
+import useViewport from "./ViewportProvider";
 import './App.css';
 
 function App() {
+  const { lessThan, greaterThan, betweenBreakpoints } = useViewport();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="wrapper">
+        {lessThan('sm') && <p>Less than SM</p>}
+        {greaterThan('lg') && <p>Greater than LG</p>}
+        {betweenBreakpoints('xs', 'xxl') && <p>Between XS and XXL</p>}
+      </div>
   );
 }
 

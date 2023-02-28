@@ -3,13 +3,17 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {ViewportProvider} from "./ViewportProvider";
+import {BREAKPOINTS} from "./constants/breakpoint";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+      <ViewportProvider breakpoints={BREAKPOINTS}>
+        <App />
+      </ViewportProvider>
   </React.StrictMode>
 );
 
